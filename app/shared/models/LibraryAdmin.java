@@ -15,20 +15,12 @@ public class LibraryAdmin extends Model {
     @Id
     @GeneratedValue
     public Integer id;
-    public String adminId;
+    public String email;
 
     @OneToMany
     public List<BookIssued> bookIssuedList;
 
-    public String studentName, password;
-
-    public String getName() {
-        return studentName;
-    }
-
-    public void setName(String firstName) {
-        this.studentName = firstName;
-    }
+    public String name, password;
 
     public Integer getId() {
         return id;
@@ -39,7 +31,7 @@ public class LibraryAdmin extends Model {
     }
 
     public String getAdminId() {
-        return adminId;
+        return email;
     }
 
     public List<BookIssued> getBookIssuedList() {
@@ -51,19 +43,11 @@ public class LibraryAdmin extends Model {
     }
 
     public void setAdminId(String adminId) {
-        this.adminId = adminId;
+        this.email = adminId;
     }
 
     public void setBookIssuedList(List<BookIssued> bookIssuedList) {
         this.bookIssuedList = bookIssuedList;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public String getStudentName() {
-        return studentName;
     }
 
     public String getPassword() {

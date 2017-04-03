@@ -11,13 +11,17 @@ import java.util.List;
 @Entity
 public class Books extends Model{
 
+    public static String BookView = "isbn, quantity, name, author, domain, isIssued, availability";
+
     @Id
     @GeneratedValue
     public Integer id;
 
-    public Integer ISBN, quantity;
-    public String name, author, domain;
-    public boolean isIssued, availibility;
+    private Integer isbn, quantity;
+    private String name, author, domain;
+    private boolean isIssued,  availability;
+
+    Finder<Integer,Books> finder = new Finder<Integer, Books>(Books.class);
 
     @OneToMany
     public List<BookIssued> bookIssuedList;
@@ -42,8 +46,8 @@ public class Books extends Model{
         return id;
     }
 
-    public Integer getISBN() {
-        return ISBN;
+    public Integer getisbn() {
+        return isbn;
     }
 
     public void setBookIssuedList(List<BookIssued> bookIssuedList) {
@@ -71,15 +75,15 @@ public class Books extends Model{
     }
 
     public boolean isAvailibility() {
-        return availibility;
+        return  availability;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setISBN(Integer ISBN) {
-        this.ISBN = ISBN;
+    public void setisbn(Integer isbn) {
+        this.isbn = isbn;
     }
 
     public void setQuantity(Integer quantity) {
@@ -103,7 +107,7 @@ public class Books extends Model{
     }
 
     public void setAvailibility(boolean availibility) {
-        this.availibility = availibility;
+        this. availability = availibility;
     }
 }
 

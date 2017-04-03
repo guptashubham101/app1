@@ -16,7 +16,7 @@ public class Student extends Model {
 
     public Integer semester, year;
 
-    public String studentName, studentRollNumber, studentEmail, password, branch;
+    public String studentName, rollNumber, studentEmail, password, branch;
 
     @CreatedTimestamp
     public Date createdOn;
@@ -44,7 +44,7 @@ public class Student extends Model {
     }
 
     public void setStudentRollNumber(String studentRollNumber) {
-        this.studentRollNumber = studentRollNumber;
+        this.rollNumber = studentRollNumber;
     }
 
     public void setStudentEmail(String studentEmail) {
@@ -93,10 +93,6 @@ public class Student extends Model {
         this.studentName = firstName;
     }
 
-    public void setRollNumber(String rollNumber) {
-        this.studentRollNumber = rollNumber;
-    }
-
     public void setCurrentSemester(Integer currentSemester) {
         this.semester = currentSemester;
     }
@@ -126,7 +122,7 @@ public class Student extends Model {
     }
 
     public String getStudentRollNumber() {
-        return studentRollNumber;
+        return rollNumber;
     }
 
     public String getStudentEmail() {
