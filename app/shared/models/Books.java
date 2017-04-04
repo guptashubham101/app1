@@ -17,8 +17,8 @@ public class Books extends Model{
     @GeneratedValue
     public Integer id;
 
-    private Integer isbn, quantity;
-    private String name, author, domain;
+    private Integer quantity;
+    private String name, author, domain, isbn;
     private boolean isIssued,  availability;
 
     Finder<Integer,Books> finder = new Finder<Integer, Books>(Books.class);
@@ -46,7 +46,7 @@ public class Books extends Model{
         return id;
     }
 
-    public Integer getisbn() {
+    public String getisbn() {
         return isbn;
     }
 
@@ -82,7 +82,7 @@ public class Books extends Model{
         this.id = id;
     }
 
-    public void setisbn(Integer isbn) {
+    public void setisbn(String isbn) {
         this.isbn = isbn;
     }
 

@@ -10,6 +10,8 @@ import java.util.List;
 @Entity
 public class Student extends Model {
 
+    public static String StudentView = "studentName, rollNumber, studentEmail, password, branch, semester, year";
+
     @Id
     @GeneratedValue
     public Integer id;

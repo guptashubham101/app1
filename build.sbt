@@ -9,6 +9,7 @@ lazy val myProject = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
 scalaVersion := "2.11.7"
 
 libraryDependencies ++= Seq(
+  filters,
   javaJdbc,
   cache,
   javaWs,

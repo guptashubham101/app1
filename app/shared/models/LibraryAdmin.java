@@ -12,6 +12,8 @@ import java.util.List;
 @Entity
 public class LibraryAdmin extends Model {
 
+    public static String LibraryAdminView = "email, name";
+
     @Id
     @GeneratedValue
     public Integer id;
@@ -22,16 +24,30 @@ public class LibraryAdmin extends Model {
 
     public String name, password;
 
+    Finder<Integer,LibraryAdmin> finder = new Finder<Integer, LibraryAdmin>(LibraryAdmin.class);
+
     public Integer getId() {
         return id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getEmail() {
+        return email;
     }
 
-    public String getAdminId() {
-        return email;
+    public String getName() {
+        return name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<BookIssued> getBookIssuedList() {
@@ -40,10 +56,6 @@ public class LibraryAdmin extends Model {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public void setAdminId(String adminId) {
-        this.email = adminId;
     }
 
     public void setBookIssuedList(List<BookIssued> bookIssuedList) {

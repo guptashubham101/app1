@@ -15,11 +15,11 @@ create table book_issued (
 
 create table books (
   id                        serial not null,
-  isbn                      integer,
   quantity                  integer,
   name                      varchar(255),
   author                    varchar(255),
   domain                    varchar(255),
+  isbn                      varchar(255),
   is_issued                 boolean,
   availability              boolean,
   constraint pk_books primary key (id))
