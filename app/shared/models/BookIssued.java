@@ -2,20 +2,22 @@ package shared.models;
 
 import com.avaje.ebean.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 public class BookIssued extends Model {
+
+    public static String BookIssuedView = "dateOfSubmission, dateOfIssue";
 
     @Id
     @GeneratedValue
     public Integer id;
 
     public Timestamp dateOfSubmission, dateOfIssue;
+
+    private boolean isSubmitted;
 
     @ManyToOne
     public Books books;
@@ -25,6 +27,17 @@ public class BookIssued extends Model {
 
     @ManyToOne
     public LibraryAdmin libraryAdmin;
+
+    @OneToMany
+    public List<Fine> fineList;
+
+    public boolean isSubmitted() {
+        return isSubmitted;
+    }
+
+    public void setSubmitted(boolean submitted) {
+        isSubmitted = submitted;
+    }
 
     public Integer getId() {
         return id;
@@ -68,6 +81,14 @@ public class BookIssued extends Model {
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public List<Fine> getFineList() {
+        return fineList;
+    }
+
+    public void setFineList(List<Fine> fineList) {
+        this.fineList = fineList;
     }
 
     public void setLibraryAdmin(LibraryAdmin libraryAdmin) {

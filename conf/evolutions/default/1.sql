@@ -7,6 +7,7 @@ create table book_issued (
   id                        serial not null,
   date_of_submission        timestamp,
   date_of_issue             timestamp,
+  is_submitted              boolean,
   books_id                  integer,
   student_id                integer,
   library_admin_id          integer,
@@ -30,8 +31,7 @@ create table fine (
   is_paid                   boolean,
   days                      integer,
   amount                    integer,
-  books_id                  integer,
-  student_id                integer,
+  book_issued_id            integer,
   constraint pk_fine primary key (id))
 ;
 
@@ -72,10 +72,8 @@ alter table book_issued add constraint fk_book_issued_student_2 foreign key (stu
 create index ix_book_issued_student_2 on book_issued (student_id);
 alter table book_issued add constraint fk_book_issued_libraryAdmin_3 foreign key (library_admin_id) references library_admin (id);
 create index ix_book_issued_libraryAdmin_3 on book_issued (library_admin_id);
-alter table fine add constraint fk_fine_books_4 foreign key (books_id) references books (id);
-create index ix_fine_books_4 on fine (books_id);
-alter table fine add constraint fk_fine_student_5 foreign key (student_id) references student (id);
-create index ix_fine_student_5 on fine (student_id);
+alter table fine add constraint fk_fine_bookIssued_4 foreign key (book_issued_id) references book_issued (id);
+create index ix_fine_bookIssued_4 on fine (book_issued_id);
 
 
 

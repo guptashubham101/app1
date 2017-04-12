@@ -26,13 +26,6 @@ public class Student extends Model {
     @OneToMany
     public List<BookIssued> bookIssuedList;
 
-    @OneToMany
-    public List<Fine> fineList;
-
-    public List<Fine> getFineList() {
-        return fineList;
-    }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -59,10 +52,6 @@ public class Student extends Model {
 
     public void setBookIssuedList(List<BookIssued> bookIssuedList) {
         this.bookIssuedList = bookIssuedList;
-    }
-
-    public void setFineList(List<Fine> fineList) {
-        this.fineList = fineList;
     }
 
     public static void setFind(Finder<Integer, Student> find) {

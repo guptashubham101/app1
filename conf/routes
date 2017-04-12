@@ -12,12 +12,16 @@ GET     /message                    controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
-POST     /issue                      controllers.BookController.issueBook()
+POST    /issue                      controllers.BookController.issueBook()
+PUT     /submit                      controllers.BookController.submitBook()
 POST    /add                        controllers.BookController.addBook()
 POST    /register                   controllers.AccessController.userRegister()
 POST    /login                      controllers.AccessController.userLogin()
 POST    /logout                     controllers.AccessController.logout()
-PUT     /fees                      controllers.BookController.feesPaid()
+PUT     /fees                       controllers.BookController.feesPaid()
+GET     /book/list                  controllers.BookController.listBook(isbn: String)
+GET     /student/list               controllers.StudentController.listBook(roll_number: String)
+
 
 
 

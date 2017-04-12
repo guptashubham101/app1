@@ -26,17 +26,6 @@ public class Books extends Model{
     @OneToMany
     public List<BookIssued> bookIssuedList;
 
-    @OneToMany
-    public List<Fine> fineList;
-
-    public List<Fine> getFineList() {
-        return fineList;
-    }
-
-    public void setFineList(List<Fine> fineList) {
-        this.fineList = fineList;
-    }
-
     public List<BookIssued> getBookIssuedList() {
         return bookIssuedList;
     }

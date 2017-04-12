@@ -10,6 +10,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Fine extends Model {
 
+    public static String FineView = "isPaid, days, amount";
+
+
     @Id
     @GeneratedValue
     public Integer id;
@@ -18,10 +21,7 @@ public class Fine extends Model {
     public Integer days, amount;
 
     @ManyToOne
-    public Books books;
-
-    @ManyToOne
-    public Student student;
+    public BookIssued bookIssued;
 
     public Integer getId() {
         return id;
@@ -37,14 +37,6 @@ public class Fine extends Model {
 
     public Integer getAmount() {
         return amount;
-    }
-
-    public Books getBooks() {
-        return books;
-    }
-
-    public Student getStudent() {
-        return student;
     }
 
     public void setId(Integer id) {
@@ -63,11 +55,11 @@ public class Fine extends Model {
         this.amount = amount;
     }
 
-    public void setBooks(Books books) {
-        this.books = books;
+    public BookIssued getBook_issue() {
+        return bookIssued;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setBook_issue(BookIssued book_issue) {
+        this.bookIssued = book_issue;
     }
 }
